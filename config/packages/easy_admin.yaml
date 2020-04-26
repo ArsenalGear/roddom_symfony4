@@ -1,0 +1,157 @@
+easy_admin:
+  design:
+    menu:
+      - { entity: 'Organisation', permission: ['ROLE_CLIENT', 'ROLE_EDITOR', 'ROLE_ADMIN']}
+      - { entity: 'User', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+      - { entity: 'Page', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+      - { entity: 'Category', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+      - { entity: 'Review', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+      - { entity: 'Feedback', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+      - { entity: 'City', permission: 'ROLE_ADMIN' }
+      - { entity: 'SubCategory', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+      - { entity: 'SubscriptionPlan', permission: ['ROLE_EDITOR', 'ROLE_ADMIN'] }
+    form_theme: # Both themes are for ckeditor integration
+      - "@EasyAdmin/form/bootstrap_4.html.twig"
+      - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
+  site_name: 'Каталог роддомов'
+  user:
+    display_name: true
+    display_avatar: false
+  entities:
+    Organisation:
+      class: App\Entity\Organisation
+      list:
+        fields: ['id', 'name', 'city', 'managedBy']
+      form:
+        fields:
+        - { type: 'tab' , label: 'Basic Information' }
+        - name
+        - { property: 'slug', permission: ['ROLE_EDITOR', 'ROLE_ADMIN'] }
+        - phone
+        - year
+        - website
+        - { property: 'licence', permission: ['ROLE_EDITOR', 'ROLE_ADMIN'] }
+        - { property: 'managedBy', permission: ['ROLE_EDITOR', 'ROLE_ADMIN'] }
+        - { property: 'subscriptionPlan', type_options: { required: true }, permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+        - { property: 'short_description', type: 'fos_ckeditor' }
+        - { property: 'full_description', type: 'fos_ckeditor' }
+        - { property: 'logoFile',  type: 'vich_file' }
+        - { property: 'alt', type: 'text' , type_options: { required: false }}
+        - { property: 'title', type: 'text' , type_options: { required: false }}
+        - { property: 'city',  type_options: { required: true }}
+        - address
+        - { property: 'category', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+        - longitude
+        - latitude
+        - { property: 'rating', permission: ['ROLE_EDITOR', 'ROLE_ADMIN'], type_options: { required: true }}
+        - { property: 'custom_code', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+        - { property: 'show_org', permission: ['ROLE_EDITOR', 'ROLE_ADMIN']}
+        - { type: 'tab' , label: 'SEO Information' }
+        - meta_title
+        - meta_description
+        - meta_keywords
+        - { type: 'tab' , label: 'Gallery' }
+        - { property: 'logoFile1', type: 'vich_file' }
+        - { property: 'alt1', type: 'text', type_options: { required: false }}
+        - { property: 'title1', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile2', type: 'vich_file' }
+        - { property: 'alt2', type: 'text' , type_options: { required: false }}
+        - { property: 'title2', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile3', type: 'vich_file' }
+        - { property: 'alt3', type: 'text' , type_options: { required: false }}
+        - { property: 'title3', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile4', type: 'vich_file' }
+        - { property: 'alt4', type: 'text' , type_options: { required: false }}
+        - { property: 'title4', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile5', type: 'vich_file' }
+        - { property: 'alt5', type: 'text' , type_options: { required: false }}
+        - { property: 'title5', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile6', type: 'vich_file' }
+        - { property: 'alt6', type: 'text' , type_options: { required: false }}
+        - { property: 'title6', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile7', type: 'vich_file' }
+        - { property: 'alt7', type: 'text' , type_options: { required: false }}
+        - { property: 'title7', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile8', type: 'vich_file' }
+        - { property: 'alt8', type: 'text' , type_options: { required: false }}
+        - { property: 'title8', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile9', type: 'vich_file' }
+        - { property: 'alt9', type: 'text' , type_options: { required: false }}
+        - { property: 'title9', type: 'text' , type_options: { required: false }}
+        - { property: 'logoFile10', type: 'vich_file' }
+        - { property: 'alt10', type: 'text' , type_options: { required: false }}
+        - { property: 'title10', type: 'text' , type_options: { required: false }}
+    City:
+      class: App\Entity\City
+    Review:
+      class: App\Entity\Review
+    User:
+      class: App\Entity\User
+      list:
+        fields:
+          - { property: 'name' }
+          - { property: 'email' }
+          - { property: 'phone' }
+      edit:
+        fields:
+          - { property: 'name' }
+          - { property: 'email' }
+          - { property: 'phone' }
+          - { property: 'plainPassword', type_options: { required: false} }
+          - { property: 'roles', type: 'choice', permission: ['ROLE_ADMIN', 'ROLE_EDITOR'],
+              type_options: { multiple: true,
+                              choices: { 'ROLE_USER': 'ROLE_USER',
+                                         'ROLE_CLIENT': 'ROLE_CLIENT',
+                                         'ROLE_EDITOR': 'ROLE_EDITOR',
+                                         'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+          - { property: 'block'}
+      new:
+        fields:
+          - { property: 'name' }
+          - { property: 'email' }
+          - { property: 'phone' }
+          - { property: 'password'}
+          - { property: 'roles', type: 'choice', permission: ['ROLE_ADMIN', 'ROLE_EDITOR'],
+              type_options: { multiple: true,
+                              choices: { 'ROLE_USER': 'ROLE_USER',
+                                         'ROLE_CLIENT': 'ROLE_CLIENT',
+                                         'ROLE_EDITOR': 'ROLE_EDITOR',
+                                         'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+#    Customization Based on Entity Controllers https://symfony.com/doc/current/bundles/EasyAdminBundle/book/complex-dynamic-backends.html
+
+    Page:
+      class: App\Entity\Page
+      list:
+        fields: ['id', 'name']
+      form:
+        fields:
+          - { type: 'tab' , label: 'Basic Information' }
+          - name
+          - slug
+          - { property: 'short_description', permission: ['ROLE_EDITOR', 'ROLE_CLIENT', 'ROLE_ADMIN'], type: 'fos_ckeditor'}
+          - { property: 'full_description', type: 'fos_ckeditor' }
+          - custom_code
+          - show_page
+          - { type: 'tab' , label: 'SEO Information' }
+          - meta_title
+          - meta_description
+          - meta_keywords
+    Feedback:
+      class: App\Entity\Feedback
+      list:
+        fields:
+          - { property: 'id'}
+          - { property: 'name' }
+          - { property: 'email' }
+          - { property: 'theme' }
+          - { property: 'attachment', type: 'url' }
+    Category:
+      class: App\Entity\Category
+      list:
+        fields: ['id', 'category_name']
+    SubCategory:
+      class: App\Entity\SubCategory
+    SubscriptionPlan:
+      class: App\Entity\SubscriptionPlan
+      list:
+        fields: ['id', 'subscription_plan']

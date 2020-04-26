@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block meta %}
+    <meta name="description" content="{{ page.metaDescription }}"/>
+    <meta name="keywords" content="{{ page.metaKeywords }}"/>
+    <meta name="title" content="{{ page.metaTitle }}"/>
+{% endblock %}
+{% block title %}{{ page.name }}{% endblock %}
+{% block body %}
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{ page.name }}</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page"><a href="/">Главная</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ page.name }}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-md-6">
+                {{ page.shortDescription | raw }}
+            </div>
+            <div class="col-md-6">
+                {{ page.fullDescription | raw }}
+            </div>
+        </div>
+    </div>
+    {% if page.customCode %}
+    <script>
+        {{ page.customCode | raw }}
+    </script>
+    {% endif %}/>
+{% endblock %}

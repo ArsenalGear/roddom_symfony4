@@ -1,0 +1,658 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Главная!{% endblock %}
+
+{% block body %}
+
+    <nav class="sub-menu" style="background-color: #f6f6f6" aria-label="breadcrumb">
+        <ol style="background-color: #f6f6f6" class="breadcrumb mb-0">
+            <li class="breadcrumb-item "><a class="breadcrumb-link"
+                                            href="/city/{{ organisation.city.slug }}">Каталог</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Роддома в
+                городе {{ organisation.city.name }}</li>
+        </ol>
+    </nav>
+
+
+
+    <div class="wrapper wrapper_dark">
+        <div class="clinic">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-12 order-md-1 order-2">
+                        <div class="clinic__gallery">
+                            <p class="title title_mobile">Галерея</p>
+                            <div class="clinic__gallery-picture-main">
+                                <img src="/uploads/images/organisations/{{ organisation.logo1 }}"
+                                     title="{{ organisation.title1 }}" alt="{{ organisation.alt1 }}">
+                            </div>
+                            <div class="popup-gallery clinic__popup-gallery">
+                                <a href="/uploads/images/organisations/{{ organisation.logo2 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo2 }}" title="{{ organisation.title2 }}" alt="{{ organisation.alt2 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo3 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo3 }}" title="{{ organisation.title3 }}" alt="{{ organisation.alt3 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo4 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo4 }}" title="{{ organisation.title4 }}" alt="{{ organisation.alt4 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo5 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo5 }}" title="{{ organisation.title5 }}" alt="{{ organisation.alt5 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo6 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo6 }}" title="{{ organisation.title6 }}" alt="{{ organisation.alt6 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo7 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo7 }}" title="{{ organisation.title7 }}" alt="{{ organisation.alt7 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo8 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo8 }}" title="{{ organisation.title8 }}" alt="{{ organisation.alt8 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo9 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo9 }}" title="{{ organisation.title9 }}" alt="{{ organisation.alt9 }}">
+                                </a>
+                                <a href="/uploads/images/organisations/{{ organisation.logo10 }}"
+                                   class="clinic__popup-gallery-item">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo10 }}" title="{{ organisation.title10 }}" alt="{{ organisation.alt10 }}">
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="clinic__gallery-mobile-slider">
+
+                            <img src="/uploads/images/organisations/{{ organisation.logo2 }}" title="{{ organisation.title2 }}" alt="{{ organisation.alt2 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo3 }}" title="{{ organisation.title3 }}" alt="{{ organisation.alt3 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo4 }}" title="{{ organisation.title4 }}" alt="{{ organisation.alt4 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo5 }}" title="{{ organisation.title5 }}" alt="{{ organisation.alt5 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo6 }}" title="{{ organisation.title6 }}" alt="{{ organisation.alt6 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo7 }}" title="{{ organisation.title7 }}" alt="{{ organisation.alt7 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo8 }}" title="{{ organisation.title8 }}" alt="{{ organisation.alt8 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo9 }}" title="{{ organisation.title9 }}" alt="{{ organisation.alt9 }}">
+                            <img src="/uploads/images/organisations/{{ organisation.logo10 }}" title="{{ organisation.title10 }}" alt="{{ organisation.alt10 }}">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-6 col-12 order-md-2 order-1">
+                        <div class="clinic__info">
+                            <h1 class="clinic__name title">{{ organisation.name }}</h1>
+                            <div class="clinic__info-content-wrapper">
+                                <div class="clinic__logo-wrapper">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo }}"
+                                         class="clinic__logo" alt="...">
+                                    <img src="/uploads/images/organisations/{{ organisation.logo }}"
+                                         class="clinic__logo clinic__logo_mobile" alt="...">
+                                </div>
+                                <div class="clinic__info-content">
+                                    <div class="clinic__rating org-page">
+                                        <p class="clinic__info-title">
+                                            Оценка
+                                        </p>
+
+                                        <div class="clinic__rating-stars">
+                                            {% if organisation.rating >= 0 %} <i
+                                                    class="clinic__rating-star"></i> {% endif %}
+                                            {% if organisation.rating >= 1.5 %} <i
+                                                    class="clinic__rating-star"></i> {% endif %}
+                                            {% if organisation.rating >= 2.5 %} <i
+                                                    class="clinic__rating-star"></i> {% endif %}
+                                            {% if organisation.rating >= 3.5 %} <i
+                                                    class="clinic__rating-star"></i> {% endif %}
+                                            {% if organisation.rating >= 4.5 %} <i
+                                                    class="clinic__rating-star"></i> {% endif %}
+                                        </div>
+                                    </div>
+                                    <a href="#" class="clinic__info-title-link">
+                                        <span class="clinic__info-title">На основании </span><span
+                                                class="clinic__info-title_reviews-number">
+                                                {{ organisation.reviews | length }} отзывов
+                                        </span>
+
+
+                                    </a>
+                                    {% if organisation.city %}
+                                        <p class="card__rating-place clinic__info-title"><span
+                                                    class="card__rating-place-number">{{ position_in_city }}</span> место в
+                                            г. {{ organisation.city.name }}</p>
+                                    {% endif %}
+                                    <p class="clinic__info-title clinic__info-title_address">{{ organisation.address }}</p>
+                                    <div class="clinic__phone-wrapper">
+                                        <a href="#" class="clinic__phone btn-default">Показать номер телефона</a>
+                                        <a class="clinic__phone-link btn-default"
+                                           href="tel:{{ organisation.phone }}">{{ organisation.phone }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clinic__desc-wrapper">
+
+                            {{ organisation.shortDescription | striptags | replace({" ": "&nbsp;"})|raw | nl2br }}
+                            <p class="clinic__desc">  {{ organisation.fullDescription | striptags | replace({" ": "&nbsp;"})|raw | nl2br }} </p>
+
+                            <a href="" class="clinic__desc-show-all">Полное описание</a>
+                        </div>
+                    </div>
+                    <div class="col-12 order-md-3 order-3">
+                        <p class="title title_mobile">Где находится?</p>
+
+                        <style>
+                            .map {
+                                width: 100%;
+                                height: 300px;
+                                padding: 0;
+                                margin: 0;
+                            }
+                        </style>
+                        <div id="map" class="map">
+                          </div>
+                        <script>
+                          ymaps.ready(init);
+
+                          function init() {
+                            var myMap = new ymaps.Map("map", {
+                              center: [{{ organisation.longitude }}, {{ organisation.latitude }}],
+                              zoom: 15
+                            }, {
+                              searchControlProvider: 'yandex#search'
+                            });
+
+                            myMap.geoObjects
+                              .add(new ymaps.Placemark([{{ organisation.longitude }}, {{ organisation.latitude }}], {
+                                  iconCaption: '{{ organisation.name }}'
+                                },
+                                {
+                                  preset: 'islands#greenDotIconWithCaption'
+                                }))
+                          }
+                        </script>
+                        <h1 class="title">Отзывы и комментарии - {{ organisation.name }}</h1>
+                        <div class="clinic__reviews-and-comments">
+                            <div class="clinic__review-wrapper">
+                                {#                                //отзывы посмотреть#}
+                                {% for review in reviews %}
+
+                                    {#                                    вывод основной ветки отзывов#}
+                                    {% if review.subcomment == 0 %}
+
+                                        <div class="clinic__review">
+
+                                            <p>{% set newSubreview = review.id %}</p>
+                                            <div class="clinic__review-content clinic__comment">
+                                                <div class="clinic__review-info-wrapper">
+                                                    <div class="clinic__review-author-avatar">
+                                                        <img class="clinic__review-author-avatar-img"
+                                                             src="/img/avatar.svg"
+                                                             alt="avatar">
+                                                    </div>
+                                                    <div class="clinic__review-info">
+                                                        <div class="clinic__review-or-comment-author-wrapper">
+                                                            <p class="clinic__review-or-comment-author">{{ review.user }}</p>
+                                                            <div
+                                                                    {% if review.type != 0 %} style="display: none" {% endif %}
+                                                                    class="clinic__rating">
+                                                                {% if review.rating >= 0 %} <i
+                                                                        class="clinic__rating-star"></i> {% endif %}
+                                                                {% if review.rating >= 1.5 %} <i
+                                                                        class="clinic__rating-star"></i> {% endif %}
+                                                                {% if review.rating >= 2.5 %} <i
+                                                                        class="clinic__rating-star"></i> {% endif %}
+                                                                {% if review.rating >= 3.5 %} <i
+                                                                        class="clinic__rating-star"></i> {% endif %}
+                                                                {% if review.rating >= 4.5 %} <i
+                                                                        class="clinic__rating-star"></i> {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <p class="clinic__review-title">
+                                                            {{ review.header }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="clinic__review-text">
+                                                    {{ review.comment }}
+                                                </p>
+
+                                                {% if app.user != null and app.user.roles[0] == "ROLE_USER" %}
+
+                                                    <a href="#sub-comment" class="btn-default sub-comment">Комментировать</a>
+                                                    {#  //отзывы прокомменитовать пользователем#}
+
+
+                                                {% elseif app.user != null and app.user.roles[0] == "ROLE_CLIENT" and app.user.id == organisation.managedBy.id %}
+
+                                                    <a href="#add-comment" class="btn-default sub-comment">Ответить</a>
+
+                                                {% endif %}
+
+                                                {% if app.user != null %}
+
+                                                    <form action="/review/{{ organisation.id }}"
+                                                          class="clinic__review-or-comment-form review-commented"
+                                                          method="post">
+
+                                                        <div class="clinic__add-rating">
+
+                                                            <label style="display: none" class="input-main">
+                                                                пользователь
+                                                                <input class="form-control" value="{{ app.user.id }}"
+                                                                       type="text" name="review_form[user]"
+                                                                       placeholder=""/>
+                                                            </label>
+
+                                                            <label style="display: none" class="input-main"> организация
+                                                                <input class="form-control"
+                                                                       value="{{ organisation.id }}" type="text"
+                                                                       name="review_form[organisation]" placeholder=""/>
+                                                            </label>
+
+                                                            <label style="display: none" class="input-main"> тип отзыв
+                                                                <input class="form-control" value="1" type="text"
+                                                                       name="review_form[type]"
+                                                                       placeholder=""/>
+                                                            </label>
+
+                                                            <label style="display: none" class="input-main">
+                                                                первоначальный отзыв
+                                                                <input class="form-control" value="{{ review.id }}"
+                                                                       type="text"
+                                                                       name="review_form[sub_comment]" placeholder=""/>
+                                                            </label>
+
+                                                            <label style="display: none" class="input-main"> email
+                                                                организации
+                                                                <input class="form-control"
+                                                                       value="{{ organisation.managedBy.email }}"
+                                                                       type="text"
+                                                                       name="review_form[email]"
+                                                                       placeholder=""/>
+                                                            </label>
+
+                                                            <p style="display: none" class="clinic__add-rating-title">
+                                                                Ваша оценка</p>
+
+                                                            <div style="display: none" class="star-cb-group">
+                                                                <input type="radio" id="" name="rating"
+                                                                       value="5"/><label for="">5</label>
+                                                                <input type="radio" id="" name="rating"
+                                                                       value="4" checked="checked"/><label
+                                                                        for="">4</label>
+                                                                <input type="radio" id="" name="rating"
+                                                                       value="3"/><label for="">3</label>
+                                                                <input type="radio" id="" name="rating"
+                                                                       value="2"/><label for="">2</label>
+                                                                <input type="radio" id="" name="rating"
+                                                                       value="1"/><label for="">1</label>
+                                                                <input type="radio" id="rating-0" name="rating"
+                                                                       value="0" class="star-cb-clear"/><label
+                                                                        for="rating-0">0</label>
+                                                            </div>
+                                                            <label style="display: none" class="input-main"> рейтинг
+                                                                <input id="rating-input" class="form-control" value="4"
+                                                                       type="text"
+                                                                       name="review_form[rating]" placeholder=""/>
+                                                            </label>
+                                                        </div>
+                                                        <label class="input-main"> Заголовок
+                                                            <input style="border: 1px solid #80bdff;" required
+                                                                   class="form-control" type="text"
+                                                                   name="review_form[header]" placeholder=""/>
+                                                        </label>
+                                                        <label class="textarea-main__wrapper"> Текст
+                                                            <textarea style="border: 1px solid #80bdff;" required
+                                                                      class="textarea-main"
+                                                                      name="review_form[comment]"
+                                                                      placeholder=""></textarea>
+                                                        </label>
+                                                        <p class="clinic__add-review-or-comment-warning clinic__add-review-or-comment-warning_italic">
+                                                            Отзывы и комментарии содержащие нецензурную брань или
+                                                            персональные данные
+                                                            посторонних людей, а также прямую или скрытую рекламу будут
+                                                            удаляться с
+                                                            последующей блокировкой аккаунтов.</p>
+                                                        <div class="btn-wrapper">
+                                                            <button name="review_form[submit]" type="submit"
+                                                                    class="btn-default">Отправить
+                                                            </button>
+                                                        </div>
+                                                    </form>
+
+                                                {% endif %}
+                                            </div>
+
+                                            {#                                            //вывод субкоммента или отзыва на коомент#}
+                                            {% for review in organisation.reviews %}
+
+                                                {% if review.subcomment == newSubreview %}
+                                                    <div style="margin: 30px 40px"
+                                                         class="clinic__review-content clinic__comment">
+                                                        <div class="clinic__review-info-wrapper">
+                                                            <div class="clinic__review-author-avatar">
+                                                                <img class="clinic__review-author-avatar-img"
+                                                                     src="/img/avatar.svg"
+                                                                     alt="avatar">
+                                                            </div>
+                                                            <div class="clinic__review-info">
+                                                                <div class="clinic__review-or-comment-author-wrapper">
+                                                                    {% if  review.user.roles[0] == "ROLE_USER" %}
+                                                                        <p class="clinic__review-or-comment-author">{{ review.user }}</p>
+                                                                    {% elseif review.user.roles[0] == "ROLE_CLIENT" %}
+                                                                        <p class="clinic__review-or-comment-author clinic__review-or-comment-author_organisation">
+                                                                            Ответ организации</p>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <p class="clinic__review-title">
+                                                                    {{ review.header }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <p class="clinic__review-text">
+                                                            {{ review.comment }}
+                                                        </p>
+
+                                                        {% if app.user != null and app.user.roles[0] == "ROLE_USER" %}
+                                                            {#                                                                прокомментировать - прокомментированное пока что display nones#}
+                                                            <form action="/review/{{ organisation.id }}"
+                                                                  class="clinic__review-or-comment-form review-commented"
+                                                                  method="post">
+
+                                                                <div class="clinic__add-rating">
+
+                                                                    <label style="display: none" class="input-main">
+                                                                        пользователь
+                                                                        <input class="form-control"
+                                                                               value="{{ app.user.id }}" type="text"
+                                                                               name="review_form[user]"
+                                                                               placeholder=""/>
+                                                                    </label>
+
+                                                                    <label style="display: none" class="input-main">
+                                                                        организация
+                                                                        <input class="form-control"
+                                                                               value="{{ organisation.id }}" type="text"
+                                                                               name="review_form[organisation]"
+                                                                               placeholder=""/>
+                                                                    </label>
+
+                                                                    <label style="display: none" class="input-main"> тип
+                                                                        отзыв
+                                                                        <input class="form-control" value="0"
+                                                                               type="text" name="review_form[type]"
+                                                                               placeholder=""/>
+                                                                    </label>
+
+                                                                    <label style="display: none" class="input-main">
+                                                                        первоначальный отзыв
+                                                                        <input class="form-control"
+                                                                               value="{{ review.id }}" type="text"
+                                                                               name="review_form[sub_comment]"
+                                                                               placeholder=""/>
+                                                                    </label>
+
+                                                                    <p style="display: none"
+                                                                       class="clinic__add-rating-title">Ваша оценка</p>
+
+                                                                    <div style="display: none" class="star-cb-group">
+                                                                        <input type="radio" id="" name="rating"
+                                                                               value="5"/><label
+                                                                                for="">5</label>
+                                                                        <input type="radio" id="" name="rating"
+                                                                               value="4" checked="checked"/><label
+                                                                                for="">4</label>
+                                                                        <input type="radio" id="" name="rating"
+                                                                               value="3"/><label
+                                                                                for="">3</label>
+                                                                        <input type="radio" id="" name="rating"
+                                                                               value="2"/><label
+                                                                                for="">2</label>
+                                                                        <input type="radio" id="" name="rating"
+                                                                               value="1"/><label
+                                                                                for="">1</label>
+                                                                        <input type="radio" id="rating-0" name="rating"
+                                                                               value="0" class="star-cb-clear"/><label
+                                                                                for="rating-0">0</label>
+                                                                    </div>
+                                                                    <label style="display: none" class="input-main">
+                                                                        рейтинг
+                                                                    </label>
+                                                                </div>
+                                                                <label class="input-main"> Заголовок
+                                                                    <input style="border: 1px solid #80bdff;" required
+                                                                           class="form-control" type="text"
+                                                                           name="review_form[header]" placeholder=""/>
+                                                                </label>
+                                                                <label class="textarea-main__wrapper"> Текст
+                                                                    <textarea style="border: 1px solid #80bdff;"
+                                                                              required class="textarea-main"
+                                                                              name="review_form[comment]"
+                                                                              placeholder=""></textarea>
+                                                                </label>
+                                                                <p class="clinic__add-review-or-comment-warning clinic__add-review-or-comment-warning_italic">
+                                                                    Отзывы и комментарии содержащие нецензурную брань
+                                                                    или персональные данные
+                                                                    посторонних людей, а также прямую или скрытую
+                                                                    рекламу будут удаляться с
+                                                                    последующей блокировкой аккаунтов.</p>
+                                                                 </form>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {#                        создание отзывва или комметария только для пользователя#}
+                        {% if app.user != NULL and app.user.roles[0] == 'ROLE_USER' %}
+                            <div class="clinic__add-reviews-and-comments">
+                                <div class="clinic__add-review-or-comment">
+                                    <p class="title">Вам есть что сказать о {{ organisation.name }} ?</p>
+                                    <h2 class="clinic__add-reviews-and-comments-title">Напишите отзыв или
+                                        комментарий!</h2>
+                                    <p id="add-comment" class="clinic__choose-review-or-comment">Вы хотите
+                                        написать...</p>
+                                    <label class="clinic__choose-review-or-comment-title checked">
+                                        Отзыв
+                                    </label>
+                                    <label class="checkbox-switch">
+                                        <input class="checkbox-switch__input" type="checkbox"
+                                               onchange="changeReviewsOrCommentfunction()">
+                                        <span class="checkbox-switch__display"></span>
+                                    </label>
+                                    <label class="clinic__choose-review-or-comment-title">
+                                        Комментарий
+                                    </label>
+                                    {#                                    //комментарии создать#}
+                                    <form style="display: none" action="/review/{{ organisation.id }}" method="post"
+                                          class="clinic__review-or-comment-form" id="comment">
+
+                                        <div style="display: none" class="clinic__add-rating">
+
+                                            <label style="display: none" class="input-main"> пользователь
+                                                <input class="form-control" value="{{ app.user.id }}" type="text"
+                                                       name="review_form[user]"
+                                                       placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> организация
+                                                <input class="form-control" value="{{ organisation.id }}" type="text"
+                                                       name="review_form[organisation]" placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> тип комментарий
+                                                <input class="form-control" value="1" type="text"
+                                                       name="review_form[type]" placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> первоначальный отзыв
+                                                <input class="form-control" value="0" type="text"
+                                                       name="review_form[sub_comment]"
+                                                       placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> email организации
+                                                <input class="form-control" value="{{ organisation.managedBy.email }}"
+                                                       type="text"
+                                                       name="review_form[email]"
+                                                       placeholder=""/>
+                                            </label>
+
+                                            <p class="clinic__add-rating-title">Ваша оценка</p>
+                                            <div class="star-cb-group">
+                                                <input type="radio" id="" name="rating" value="5"/><label
+                                                        for="">5</label>
+                                                <input type="radio" id="" name="rating" value="4"
+                                                       checked="checked"/><label
+                                                        for="">4</label>
+                                                <input type="radio" id="" name="rating" value="3"/><label
+                                                        for="">3</label>
+                                                <input type="radio" id="" name="rating" value="2"/><label
+                                                        for="">2</label>
+                                                <input type="radio" id="" name="rating" value="1"/><label
+                                                        for="">1</label>
+                                                <input type="radio" id="" name="rating" value="0"
+                                                       class="star-cb-clear"/><label
+                                                        for="">0</label>
+                                            </div>
+                                            <label style="display: none" class="input-main"> рейтинг
+                                                <input id="rating-input" class="form-control" value="4" type="text"
+                                                       name="review_form[rating]"
+                                                       placeholder=""/>
+                                            </label>
+                                        </div>
+                                        <label class="input-main"> Заголовок
+                                            <input required class="form-control" type="text" name="review_form[header]"
+                                                   placeholder=""/>
+                                        </label>
+                                        <label class="textarea-main__wrapper"> Текст
+                                            <textarea required class="textarea-main" name="review_form[comment]"
+                                                      placeholder=""></textarea>
+                                        </label>
+                                        <p class="clinic__add-review-or-comment-warning clinic__add-review-or-comment-warning_italic">
+                                            Отзывы и комментарии содержащие нецензурную брань или персональные данные
+                                            посторонних людей, а также прямую или скрытую рекламу будут удаляться с
+                                            последующей блокировкой аккаунтов.</p>
+                                        <div class="btn-wrapper">
+                                            <button name="review_form[submit]" type="submit" class="btn-default">
+                                                Отправить
+                                            </button>
+                                        </div>
+                                    </form>
+                                    {#                                    //отзывы создать#}
+                                    <form action="/review/{{ organisation.id }}" class="clinic__review-or-comment-form"
+                                          id="review"
+                                          method="post">
+                                        <p class="clinic__add-review-or-comment-warning">Пишите отзыв, только если Вы
+                                            или
+                                            ваши близкие лично пользовались услугами {{ organisation.name }}. Подробнее
+                                            читайте в правилах написания отзывов на проекте РосРоддом.</p>
+                                        <div class="clinic__add-rating">
+
+                                            <label style="display: none" class="input-main"> пользователь
+                                                <input class="form-control" value="{{ app.user.id }}" type="text"
+                                                       name="review_form[user]"
+                                                       placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> организация
+                                                <input class="form-control" value="{{ organisation.id }}" type="text"
+                                                       name="review_form[organisation]" placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> тип отзыв
+                                                <input class="form-control" value="0" type="text"
+                                                       name="review_form[type]" placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> первоначальный отзыв
+                                                <input class="form-control" value="0" type="text"
+                                                       name="review_form[sub_comment]"
+                                                       placeholder=""/>
+                                            </label>
+
+                                            <label style="display: none" class="input-main"> email организации
+                                                <input class="form-control" value="{{ organisation.managedBy.email }}"
+                                                       type="text"
+                                                       name="review_form[email]"
+                                                       placeholder=""/>
+                                            </label>
+
+                                            <p class="clinic__add-rating-title">Ваша оценка</p>
+                                            <div class="star-cb-group">
+                                                <input class="reveiew-rating" type="radio" id="rating-5" name="rating"
+                                                       value="5"/><label
+                                                        for="rating-5">5</label>
+                                                <input class="reveiew-rating" type="radio" id="rating-4" name="rating"
+                                                       value="4"
+                                                       checked="checked"/><label
+                                                        for="rating-4">4</label>
+                                                <input class="reveiew-rating" type="radio" id="rating-3" name="rating"
+                                                       value="3"/><label
+                                                        for="rating-3">3</label>
+                                                <input class="reveiew-rating" type="radio" id="rating-2" name="rating"
+                                                       value="2"/><label
+                                                        for="rating-2">2</label>
+                                                <input class="reveiew-rating" type="radio" id="rating-1" name="rating"
+                                                       value="1"/><label
+                                                        for="rating-1">1</label>
+                                                <input type="radio" id="" name="rating" value="0"
+                                                       class="star-cb-clear"/><label
+                                                        for="">0</label>
+                                            </div>
+                                            <label style="display: none" class="input-main"> рейтинг
+                                                <input id="rating-input" class="form-control" value="4" type="text"
+                                                       name="review_form[rating]"
+                                                       placeholder=""/>
+                                            </label>
+                                        </div>
+                                        <label class="input-main"> Заголовок
+                                            <input required class="form-control" type="text" name="review_form[header]"
+                                                   placeholder=""/>
+                                        </label>
+                                        <label class="textarea-main__wrapper"> Текст
+                                            <textarea required class="textarea-main" name="review_form[comment]"
+                                                      placeholder=""></textarea>
+                                        </label>
+                                        <p class="clinic__add-review-or-comment-warning clinic__add-review-or-comment-warning_italic">
+                                            Отзывы и комментарии содержащие нецензурную брань или персональные данные
+                                            посторонних людей, а также прямую или скрытую рекламу будут удаляться с
+                                            последующей блокировкой аккаунтов.</p>
+                                        <div class="btn-wrapper">
+                                            <button name="review_form[submit]" type="submit" class="btn-default">
+                                                Отправить
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center my-5">
+        {{ knp_pagination_render(reviews) }}
+    </div>
+
+    <script>
+      function changeReviewsOrCommentfunction() {
+        if ($('.checkbox-switch__input').is(':checked')) {
+          $('#comment').show();
+          $('#review').hide();
+        } else {
+          $('#review').show();
+          $('#comment').hide();
+        }
+      }
+    </script>
+
+{% endblock %}
